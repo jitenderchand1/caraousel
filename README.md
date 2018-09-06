@@ -16,4 +16,4 @@
 ## To see documentation
 > serve the index.html file in out folder with any server
 
-*** Note: For documentation, jsdocs has been used ***sss
+**Note: For documentation, jsdocs has been used **
