@@ -5,23 +5,32 @@ import { getAllImages } from '@ApiServices/ImageService'
 export default class Home extends Component{
 
   state = {
-    images:[]
+    images:[],
+    loader: false
   }
 
-  componentDidMount(){
+  componentWillMount(){
+    this.setState({
+      loader: true
+    })
     getAllImages().then(({images})=>{
       this.setState({
-        images
+        images,
+        loader: false
       })
     })
   }
 
+
   render(){
-    const { images } = this.state;
+    const { images, loader } = this.state;
+    if(loader){
+      return <div>Loader</div>
+    }
     return (
       <div>
         <Caraousel
-          images={images.splice(0,5)}
+          images={images.splice(0,6)}
         />
       </div>
     )

@@ -1,0 +1,21 @@
+.slider{
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.slide-container{
+    &.trans {
+        transition: transform 0.3s;
+    }
+}
+
+.slide{
+    float: left;
+    width: 200px;
+    height: 200px;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
