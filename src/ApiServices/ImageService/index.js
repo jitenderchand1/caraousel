@@ -1,6 +1,6 @@
 import {
   getImageApiUrl,
-} from '@constant/urlConstant';
+} from '@constant';
 
 import {
   transformImagesArray,

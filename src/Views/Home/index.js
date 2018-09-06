@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Caraousel from '@carousel';
-import { getAllImages } from '@ApiServices/ImageService'
+import { getAllImages } from '@ApiServices'
 
 export default class Home extends Component{
 
@@ -30,6 +30,7 @@ export default class Home extends Component{
     return (
       <div>
         <Caraousel
+          slideWidth={200}
           images={images.splice(0,6)}
         />
       </div>
