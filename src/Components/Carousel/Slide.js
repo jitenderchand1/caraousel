@@ -4,11 +4,12 @@ const Slide = (props) => {
   const {
     isActive,
     image,
+    tabIndex
   } = props;
 
   return(
     <div className={`slide ${isActive ? 'active-slide' : ''}`}>
-      <img src={image.webFormatUrl} alt={image.tags} className={'slide-img'} />
+      <img tabIndex={tabIndex} aria-label={image.tags} src={image.webFormatUrl} alt={image.tags} className={'slide-img'} />
     </div>
   )
 };

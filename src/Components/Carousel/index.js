@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Slide from './Slide';
+import PropTypes from 'prop-types';
 import './style.scss'
 
 /**
- * @name Caraousel
+ * @name Carousel
  * @class
  * @description
  * Caraousel component that takes 6 images as an array and shows them
  * as a slider
  */
-export default class Caraousel extends Component{
+export default class Carousel extends Component{
 
    constructor(props){
      super(props);
@@ -159,23 +160,36 @@ export default class Caraousel extends Component{
   render(){
     const { imagesToRender, scrollPosition, isTransitionClassAdded } = this.state;
     return (
-      <div className="slider">
-        <div
-          className={`slide-container ${isTransitionClassAdded ? 'trans' : ''}`}
-          style={{width: `${imagesToRender.length * 200}px`, transform:`translate(${scrollPosition}px)`}}
-        >
-        {
-          imagesToRender.map((image, index) => {
-            return (
-              <Slide key={index} image={image} isActive="" />
-            )
-          })
-        }
+      <Fragment>
+        <div className="slider">
+          <div
+            className={`slide-container ${isTransitionClassAdded ? 'trans' : ''}`}
+            style={{width: `${imagesToRender.length * this.props.slideWidth}px`, transform:`translate(${scrollPosition}px)`}}
+          >
+          {
+            imagesToRender.map((image, index) => {
+              return (
+                <Slide tabIndex={(index)} key={index} image={image} isActive="" />
+              )
+            })
+          }
+          </div>
         </div>
-        <button onClick={this.moveToPrevSlide}>Prev</button>
-        <button onClick={this.moveToNextSlide}>Next</button>
-      </div>
+        <div className="carousel-button-row">
+          <button role="button" aria-label="Move to previous slide" className="carousel-button prev" onClick={this.moveToPrevSlide}>Prev</button>
+          <button role="button" aria-label="Move to next slide" className="carousel-button next" onClick={this.moveToNextSlide}>Next</button>
+        </div>
+      </Fragment>
     )
   }
 }
+
+Carousel.propTypes = {
+  images: PropTypes.array,
+};
+
+Carousel.defaultProps = {
+  images: [],
+};
+
 
