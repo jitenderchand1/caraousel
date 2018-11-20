@@ -94,7 +94,7 @@ module.exports = {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
-      '@carousel': path.resolve(__dirname, '../src/Components/Caraousel'),
+      '@carousel': path.resolve(__dirname, '../src/Components/Carousel'),
       '@constant': path.resolve(__dirname, '../src/Constants'),
       '@ApiServices': path.resolve(__dirname, '../src/ApiServices'),
     },
